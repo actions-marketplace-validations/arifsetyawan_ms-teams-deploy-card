@@ -20,7 +20,7 @@ inputs:
     description: Timezone for notification
     required: false
     default: UTC
-  hideStatus:
+  hide-status:
     description: Hide Status
     required: false
     default: false
