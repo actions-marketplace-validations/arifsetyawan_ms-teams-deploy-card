@@ -63,13 +63,23 @@ export function formatCompleteLayout(
       "Event type:",
       "`" + process.env.GITHUB_EVENT_NAME?.toUpperCase() + "`"
     ),
-    new Fact("Status:", labels),
     new Fact(
       "Commit message:",
       escapeMarkdownTokens(commit.data.commit.message)
     ),
     new Fact("Repository & branch:", `[${branchUrl}](${branchUrl})`),
   ];
+
+  const hideStatus = getInput("hide-status");
+  
+  if (hideStatus && hideStatus.toLowerCase() !== "true") {
+    section.facts.splice(
+      1,
+      0,
+      new Fact("Status:", labels)
+    );
+  }
+
 
   // Set custom facts
   const customFacts = getInput("custom-facts");

@@ -20,6 +20,10 @@ inputs:
     description: Timezone for notification
     required: false
     default: UTC
+  hideStatus:
+    description: Hide Status
+    required: false
+    default: false
   card-layout-start:
     description: Card layout on start (i.e. "complete", "cozy", "compact")
     required: false
